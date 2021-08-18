@@ -16,11 +16,11 @@ Binarize the distilled training data.
 ```
 input_dir=path_to_raw_text_data
 data_dir=path_to_binarized_output
-src=source_language
-tgt=target_language
-python3 fairseq_cli/preprocess.py --source-lang ${src} --target-lang ${tgt} --trainpref ${input_dir}/train \
+#src=source_language
+#tgt=target_language
+python fairseq_cli/preprocess.py --source-lang src --target-lang tgt --trainpref ${input_dir}/train \
     --validpref ${input_dir}/valid --testpref ${input_dir}/test --destdir ${data_dir}/ \
-    --workers 32 --src-dict ${input_dir}/dict.${src}.txt --tgt-dict {input_dir}/dict.${tgt}.txt
+    --workers 32 --srcdict ${input_dir}/vocab.txt --tgtdict ${input_dir}/vocab.txt
 ```
 
 ### Train
